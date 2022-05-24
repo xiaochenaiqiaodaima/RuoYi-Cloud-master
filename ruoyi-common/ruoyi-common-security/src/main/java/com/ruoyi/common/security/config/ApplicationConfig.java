@@ -13,6 +13,11 @@ import java.util.TimeZone;
  **/
 public class ApplicationConfig {
 
+
+    /**
+     * 时区配置
+     * @return
+     */
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
         return jacksonObjectMapperBuilder -> jacksonObjectMapperBuilder.timeZone(TimeZone.getDefault());

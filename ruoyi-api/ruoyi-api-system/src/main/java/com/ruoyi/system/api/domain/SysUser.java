@@ -4,6 +4,7 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @TaskCode:
@@ -72,7 +73,7 @@ public class SysUser extends BaseEntity {
 //    private SysDept dept;
 
     /** 角色对象 */
-//    private List<SysRole> roles;
+    private List<SysRole> roles;
 
     /** 角色组 */
     private Long[] roleIds;
@@ -82,4 +83,14 @@ public class SysUser extends BaseEntity {
 
     /** 角色ID */
     private Long roleId;
+
+    public boolean isAdmin()
+    {
+        return isAdmin(this.userId);
+    }
+
+    public static boolean isAdmin(Long userId)
+    {
+        return userId != null && 1L == userId;
+    }
 }

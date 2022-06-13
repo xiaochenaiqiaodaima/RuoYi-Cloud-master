@@ -22,6 +22,14 @@ import javax.servlet.http.HttpServletResponse;
  **/
 public class HeaderInterceptor implements AsyncHandlerInterceptor {
 
+    /**
+     * 处理业务之前执行
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws Exception
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (!(handler instanceof HandlerMethod)){

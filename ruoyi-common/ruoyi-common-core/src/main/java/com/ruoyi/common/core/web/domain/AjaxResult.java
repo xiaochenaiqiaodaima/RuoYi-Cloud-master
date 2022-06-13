@@ -1,7 +1,7 @@
 package com.ruoyi.common.core.web.domain;
 
+import com.ruoyi.common.core.constant.HttpStatus;
 import com.ruoyi.common.core.utils.StringUtils;
-import org.springframework.http.HttpStatus;
 
 import java.util.HashMap;
 

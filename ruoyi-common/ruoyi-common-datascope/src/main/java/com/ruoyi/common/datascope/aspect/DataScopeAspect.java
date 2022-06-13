@@ -9,6 +9,7 @@ import com.ruoyi.system.api.domain.SysUser;
 import com.ruoyi.system.api.model.LoginUser;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 /**
@@ -49,6 +50,13 @@ public class DataScopeAspect {
      * 数据权限过滤关键字
      */
     public static final String DATA_SCOPE = "dataScope";
+
+    @Before("@annotation(controllerDataScope)")
+    public void doBefore(JoinPoint point, DataScope controllerDataScope) throws Throwable
+    {
+        clearDataScope(point);
+        handleDataScope(point, controllerDataScope);
+    }
 
     protected void handleDataScope(final JoinPoint joinPoint, DataScope controllerDataScope){
         // 获取当前用户
